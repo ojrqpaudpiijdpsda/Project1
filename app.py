@@ -7,6 +7,7 @@ def main():
     parser.add_argument('--view', action='store_true', help='View all tasks')
     parser.add_argument('--delete', metavar='INDEX', type=int, help='Delete a task by its index')
     parser.add_argument('--complete', metavar='INDEX', type=int, help='Mark a task as completed by its index')
+    parser.add_argument('--current', metavar='TASK', type=str, help='Mark a task as currently being done by its index')
     args = parser.parse_args()
 
     manager = TaskManager()
@@ -26,8 +27,11 @@ def main():
             print("Error: Task index must be 1 or greater.")
         else:
             manager.complete_task(args.complete - 1)
-    else:
-        parser.print_help()
+    elif args.current is not None:
+        if args.current < 1:
+            print("Error: Task index must be 1 or greater.")
+        else:
+            manager.current_task(args.current - 1)
 
 if __name__ == "__main__":
     main()

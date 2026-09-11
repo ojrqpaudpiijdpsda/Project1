@@ -10,7 +10,7 @@ def main():
 
     manager = TaskManager()
 
-    if args.add:
+    if args.add is not None:
         manager.add_task(args.add)
     elif args.view:
         manager.view_tasks()

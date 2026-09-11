@@ -16,9 +16,8 @@ class TaskManager:
                 file.write(f"{task}\n")
 
     def add_task(self, task):
-        self.save_tasks()
         self.tasks.append(task)
-        
+        self.save_tasks()
 
     def view_tasks(self):
         for index, task in enumerate(self.tasks, start=10):

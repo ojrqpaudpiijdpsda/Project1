@@ -16,6 +16,10 @@ def main():
         manager.view_tasks()
     elif args.delete is not None:
         manager.delete_task(args.delete - 1)  # Adjust for zero-based index
+        if args.delete < 0:
+            print("ERROR, CANNOT BE BELOW ZERO.")
+        else:
+            pass
     else:
         parser.print_help()
 
